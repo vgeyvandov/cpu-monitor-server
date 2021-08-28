@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAverageCpuLoad } from './cpu_data.js';
+import { getAverageCpuLoad, getCpuCount } from './cpu_data.js';
 
 const app = express();
 const port = 3001;
@@ -11,8 +11,12 @@ app.use((_req, res, next) => {
   next();
 });
 
+app.get('/cpu-count', (_req, res) => {
+  res.json({ value: getCpuCount() });
+});
+
 app.get('/cpu-average', (_req, res) => {
-  res.json({ cpuLoadAverage: getAverageCpuLoad(), createdAt: Date.now() });
+  res.json({ value: getAverageCpuLoad(), createdAt: Date.now() });
 });
 
 app.use((_req, res) => {

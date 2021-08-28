@@ -12,6 +12,11 @@
     },
     "rules": {
         "semi": [2, "always"],
-        "space-before-function-paren": [2, "never"]
+        "space-before-function-paren": [2, "never"],
+        "no-unused-vars": ["warn", {
+            "args": "all",
+            "argsIgnorePattern": "^_" ,
+            "ignoreRestSiblings": true
+        }]
     }
 }
