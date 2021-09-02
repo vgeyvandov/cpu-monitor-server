@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint ./",
-		"lint:fix": "eslint ./ --fix"
+    "lint:fix": "eslint ./ --fix"
   },
   "author": "Val Geyvandov",
   "license": "ISC",

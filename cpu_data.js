@@ -5,7 +5,7 @@ export function getCpuCount() {
 }
 
 export function getAverageCpuLoad() {
-  const cpus = os.cpus().length;
+  const cpus = getCpuCount();
   const loadAverage = os.loadavg()[0] / cpus;
   return parseFloat(loadAverage.toFixed(5));
 }

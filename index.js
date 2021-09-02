@@ -4,19 +4,12 @@ import { getAverageCpuLoad, getCpuCount } from './cpu_data.js';
 const app = express();
 const port = 3001;
 
-// allow local client running on port 3000 to make requests to API
-app.use((_req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.setHeader('Access-Control-Allow-Headers', 'authorization, Content-Type');
-  next();
-});
-
-app.get('/cpu-count', (_req, res) => {
+app.get('/api/cpu-count', (_req, res) => {
   res.json({ value: getCpuCount() });
 });
 
-app.get('/cpu-average', (_req, res) => {
-  res.json({ value: getAverageCpuLoad(), createdAt: Date.now() });
+app.get('/api/cpu-average', (_req, res) => {
+  res.json({ value: getAverageCpuLoad() });
 });
 
 app.use((_req, res) => {
@@ -24,5 +17,5 @@ app.use((_req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`CPU monitor app listening at http://localhost:${port}`);
 });
